@@ -55,3 +55,42 @@
 .slider-arrow{position:relative;overflow:hidden}.slider-arrow:after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid rgba(255,255,255,.45);transform:scale(.7);opacity:0;transition:.25s}.slider-arrow:hover:after{transform:scale(.9);opacity:1}
 
 @media(prefers-reduced-motion:reduce){.hero-camera img,.steps article>div,.camera-card.active,.camera-tabs button.selected,.segmented button.selected,.package-list button.selected,.total,.slider-progress span,[data-reveal].revealed .occasion-list span,[data-reveal].revealed .steps article{animation:none!important}}
+
+/* Sticky navigation and active-section indicator */
+.nav-shell{position:sticky;top:0;z-index:50;background:rgba(255,250,241,.88);border-bottom:1px solid rgba(36,48,68,.07);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .25s ease}
+.nav-shell:hover{box-shadow:0 10px 28px rgba(36,48,68,.07)}
+.navlinks a{position:relative;padding:31px 0 27px;transition:color .25s ease}
+.navlinks a:after{content:"";position:absolute;left:50%;right:50%;bottom:21px;height:2px;border-radius:99px;background:var(--coral);transition:left .28s ease,right .28s ease}
+.navlinks a:hover,.navlinks a.active{color:var(--coral)}
+.navlinks a:hover:after,.navlinks a.active:after{left:0;right:0}
+#kamera,#banding,#cara,#cerita,#faq{scroll-margin-top:82px}
+
+/* Factual reassurance below the hero */
+.proof-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.proof-row span{display:flex;align-items:center;gap:8px;background:white;border:1px solid #eee7dd;border-radius:999px;padding:8px 11px;font-size:10px;font-weight:700;color:#626b7c;box-shadow:0 5px 14px rgba(57,46,42,.05)}
+.proof-row b{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--mint);font-size:8px;color:var(--ink)}
+
+/* Compact camera comparison */
+.comparison-section{background:linear-gradient(180deg,#fff 0%,#fff8f1 100%)}
+.comparison-scroll{overflow-x:auto;padding:5px 0 18px;scrollbar-width:thin;scrollbar-color:var(--lilac) transparent}
+.comparison-table{width:100%;min-width:760px;border-collapse:separate;border-spacing:0;background:white;border:1px solid #eee6dc;border-radius:24px;overflow:hidden;box-shadow:0 18px 45px rgba(66,52,47,.08)}
+.comparison-table th,.comparison-table td{padding:19px 18px;text-align:left;border-right:1px solid #eee9e2;border-bottom:1px solid #eee9e2;font-size:13px;line-height:1.45}
+.comparison-table thead th{background:var(--ink);color:white;font-size:14px}.comparison-table thead th:first-child{color:var(--yellow)}
+.comparison-table tbody th{background:#fff3e9;width:155px}.comparison-table td:last-child,.comparison-table th:last-child{border-right:0}.comparison-table tbody tr:last-child>*{border-bottom:0}
+.comparison-table tbody tr:last-child td{color:var(--coral);font-weight:900;font-size:15px}
+.comparison-table tbody tr:hover td{background:#fffaf4}
+.comparison-note{font-size:10px;color:#858c99;margin:10px 0 0;text-align:center}
+
+/* FAQ accordion */
+.faq-section{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:start}
+.faq-intro h2{font-size:42px;letter-spacing:-2.2px;margin-bottom:14px}.faq-intro p{color:#6d7585;line-height:1.7;max-width:360px}
+.faq-list{display:grid;gap:11px}
+.faq-list details{background:white;border:1px solid #ebe4db;border-radius:18px;padding:0 20px;box-shadow:0 9px 22px rgba(60,49,43,.05);transition:border-color .25s ease,transform .25s ease}
+.faq-list details:hover{transform:translateY(-2px);border-color:#f0b5ad}.faq-list details[open]{border-color:var(--coral)}
+.faq-list summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer;font-weight:800;font-size:14px}.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary span{display:grid;place-items:center;flex:0 0 28px;height:28px;border-radius:50%;background:#fff0e9;color:var(--coral);font-size:19px;transition:transform .25s ease}
+.faq-list details[open] summary span{transform:rotate(45deg)}
+.faq-list details p{margin:-3px 42px 20px 0;color:#707887;font-size:13px;line-height:1.7}
+
+@media(max-width:850px){.faq-section{grid-template-columns:1fr;gap:28px}.proof-row{max-width:560px}.comparison-table th,.comparison-table td{padding:16px 14px}}
+@media(max-width:540px){.proof-row{display:grid;grid-template-columns:1fr}.proof-row span{border-radius:13px}.faq-intro h2{font-size:34px}.faq-list details{padding-inline:16px}.comparison-scroll{margin-right:-13px;padding-right:13px}.nav-shell .nav{height:70px}}
