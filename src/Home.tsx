@@ -19,7 +19,7 @@ const gallery = [
   { type: "video", src: `${import.meta.env.BASE_URL}gallery/kamerain-moment-1.mp4`, poster: `${import.meta.env.BASE_URL}gallery/video-1-poster.jpg`, caption: "KameraIn in motion" },
   { type: "image", src: `${import.meta.env.BASE_URL}gallery/cameras-together.webp`, alt: "Membawa dua kamera Instax saat jalan-jalan", caption: "Choose your favorite camera" },
   { type: "image", src: `${import.meta.env.BASE_URL}gallery/instax-prints.webp`, alt: "Hasil cetak foto Instax pada malam hari", caption: "Printed night memories" },
-  { type: "video", src: `${import.meta.env.BASE_URL}gallery/kamerain-moment-2.mp4`, poster: `${import.meta.env.BASE_URL}gallery/video-2-poster.jpg`, caption: "A moment with KameraIn" },
+  { type: "video", src: `${import.meta.env.BASE_URL}gallery/kamerain-moment-2-hd.mp4`, poster: `${import.meta.env.BASE_URL}gallery/video-2-poster-hd.jpg`, caption: "Unboxing & styling Instax" },
   { type: "image", src: `${import.meta.env.BASE_URL}gallery/snow-couple.webp`, alt: "Contoh foto pasangan di Snow World", caption: "A day to remember" },
   { type: "image", src: `${import.meta.env.BASE_URL}gallery/friend-portrait.webp`, alt: "Contoh foto bersama teman", caption: "Fun with friends" },
 ] as const;

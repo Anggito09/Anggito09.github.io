@@ -54,6 +54,12 @@
 .media-slider:hover+.slider-dots+.slider-progress span,.media-slider:focus-within+.slider-dots+.slider-progress span{animation-play-state:paused}
 .slider-arrow{position:relative;overflow:hidden}.slider-arrow:after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid rgba(255,255,255,.45);transform:scale(.7);opacity:0;transition:.25s}.slider-arrow:hover:after{transform:scale(.9);opacity:1}
 
+/* Coral-pink CTA treatment */
+.btn{background:linear-gradient(135deg,var(--pink),var(--coral));box-shadow:0 7px 0 rgba(202,68,91,.18),0 12px 24px rgba(241,102,104,.2)}
+.btn:hover{filter:saturate(1.08) brightness(1.03)}
+.wide{background:linear-gradient(135deg,var(--pink),var(--coral));box-shadow:0 10px 24px rgba(241,102,104,.22)}
+.btn.light,.detail-actions .btn{background:white;box-shadow:none}
+
 @media(prefers-reduced-motion:reduce){.hero-camera img,.steps article>div,.camera-card.active,.camera-tabs button.selected,.segmented button.selected,.package-list button.selected,.total,.slider-progress span,[data-reveal].revealed .occasion-list span,[data-reveal].revealed .steps article{animation:none!important}}
 
 /* Sticky navigation and active-section indicator */
