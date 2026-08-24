@@ -57,13 +57,14 @@
 @media(prefers-reduced-motion:reduce){.hero-camera img,.steps article>div,.camera-card.active,.camera-tabs button.selected,.segmented button.selected,.package-list button.selected,.total,.slider-progress span,[data-reveal].revealed .occasion-list span,[data-reveal].revealed .steps article{animation:none!important}}
 
 /* Sticky navigation and active-section indicator */
-.nav-shell{position:sticky;top:0;z-index:50;background:rgba(255,250,241,.88);border-bottom:1px solid rgba(36,48,68,.07);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:box-shadow .25s ease}
-.nav-shell:hover{box-shadow:0 10px 28px rgba(36,48,68,.07)}
+.nav-shell{position:relative;z-index:5;background:transparent;border-bottom:1px solid rgba(36,48,68,.05)}
+.scroll-progress{position:fixed;z-index:100;top:0;left:0;width:100%;height:5px;background:rgba(217,205,250,.35);pointer-events:none}
+.scroll-progress span{display:block;width:100%;height:100%;transform-origin:left center;background:linear-gradient(90deg,#7658c9,var(--coral),#ffb06f);box-shadow:0 0 12px rgba(241,102,104,.35);transition:transform .1s linear}
 .navlinks a{position:relative;padding:31px 0 27px;transition:color .25s ease}
 .navlinks a:after{content:"";position:absolute;left:50%;right:50%;bottom:21px;height:2px;border-radius:99px;background:var(--coral);transition:left .28s ease,right .28s ease}
 .navlinks a:hover,.navlinks a.active{color:var(--coral)}
 .navlinks a:hover:after,.navlinks a.active:after{left:0;right:0}
-#kamera,#banding,#cara,#cerita,#faq{scroll-margin-top:82px}
+#kamera,#banding,#cara,#cerita,#faq{scroll-margin-top:12px}
 
 /* Factual reassurance below the hero */
 .proof-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
