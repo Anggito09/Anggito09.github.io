@@ -22,3 +22,36 @@
 
 /* Keep each step number close to its icon. */
 .steps article>span{top:14px;left:calc(50% + 32px);right:auto}
+
+/* Interactive motion layer */
+@keyframes cameraBreathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-7px) scale(1.015)}}
+@keyframes progressFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes totalPop{0%{opacity:.4;transform:scale(.97)}70%{transform:scale(1.015)}100%{opacity:1;transform:scale(1)}}
+@keyframes iconBounce{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes selectedPulse{0%{box-shadow:0 0 0 0 rgba(241,102,104,.32)}100%{box-shadow:0 0 0 10px rgba(241,102,104,0)}}
+
+.hero-camera img{animation:cameraBreathe 4.2s ease-in-out infinite;transition:transform .35s ease,filter .35s ease}
+.hero-camera:nth-child(2) img{animation-delay:-1.1s}.hero-camera:nth-child(3) img{animation-delay:-2.2s}.hero-camera:nth-child(4) img{animation-delay:-3.3s}
+.hero-camera:before{content:"";position:absolute;z-index:2;inset:-70% -35%;background:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.72) 50%,transparent 58%);transform:translateX(-70%) rotate(8deg);transition:transform .65s ease;pointer-events:none}
+.hero-camera:hover:before{transform:translateX(70%) rotate(8deg)}
+.hero-camera:hover img{animation-play-state:paused;filter:drop-shadow(0 10px 10px rgba(43,35,55,.15))}
+.camera-card.active,.camera-tabs button.selected,.segmented button.selected,.package-list button.selected{animation:selectedPulse .55s ease-out}
+.camera-card:after{transition:transform .25s ease}.camera-card:hover:after{transform:rotate(10deg) scale(1.08)}
+.total{animation:totalPop .36s ease both}
+
+.steps article>div{animation:iconBounce 3.4s ease-in-out infinite}
+.steps article:nth-child(2)>div{animation-delay:-1.1s}.steps article:nth-child(3)>div{animation-delay:-2.2s}
+.steps article:hover>div{animation-play-state:paused;transform:translateY(-7px) rotate(4deg) scale(1.08)}
+.steps article>div{transition:transform .25s ease,box-shadow .25s ease}.steps article:hover>div{box-shadow:0 14px 25px rgba(47,45,64,.12)}
+
+[data-reveal].revealed .occasion-list span,[data-reveal].revealed .steps article{animation:cardIn .55s ease both}
+[data-reveal].revealed .occasion-list span:nth-child(2),[data-reveal].revealed .steps article:nth-child(2){animation-delay:.09s}
+[data-reveal].revealed .occasion-list span:nth-child(3),[data-reveal].revealed .steps article:nth-child(3){animation-delay:.18s}
+[data-reveal].revealed .occasion-list span:nth-child(4){animation-delay:.27s}[data-reveal].revealed .occasion-list span:nth-child(5){animation-delay:.36s}[data-reveal].revealed .occasion-list span:nth-child(6){animation-delay:.45s}
+
+.slider-progress{width:min(420px,70%);height:4px;margin:18px auto 0;border-radius:99px;background:#e4ddd3;overflow:hidden}
+.slider-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--coral),#ff9f80);transform-origin:left;animation:progressFill 5.2s linear both}
+.media-slider:hover+.slider-dots+.slider-progress span,.media-slider:focus-within+.slider-dots+.slider-progress span{animation-play-state:paused}
+.slider-arrow{position:relative;overflow:hidden}.slider-arrow:after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid rgba(255,255,255,.45);transform:scale(.7);opacity:0;transition:.25s}.slider-arrow:hover:after{transform:scale(.9);opacity:1}
+
+@media(prefers-reduced-motion:reduce){.hero-camera img,.steps article>div,.camera-card.active,.camera-tabs button.selected,.segmented button.selected,.package-list button.selected,.total,.slider-progress span,[data-reveal].revealed .occasion-list span,[data-reveal].revealed .steps article{animation:none!important}}
