@@ -1,0 +1,84 @@
+/* Clean camera imagery outside the official product-detail guide.
+   The official guide section is intentionally excluded. */
+
+/* Camera selection cards */
+.camera-card > img {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  mix-blend-mode: multiply !important;
+  filter: drop-shadow(0 16px 20px rgba(36,48,68,.16)) !important;
+  transform: scale(.96);
+}
+.camera-card:hover > img {
+  transform: translateY(-4px) scale(1.01) !important;
+  filter: drop-shadow(0 21px 25px rgba(36,48,68,.20)) !important;
+}
+
+/* Selected-camera detail area */
+.detail-photo {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg,#f7f1ff 0%,#fff5ef 100%) !important;
+}
+.detail-photo::before {
+  content: "";
+  position: absolute;
+  width: 72%;
+  aspect-ratio: 1;
+  left: 14%;
+  top: 12%;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(217,205,250,.56) 0 52%,rgba(255,205,200,.18) 53% 70%,transparent 71%);
+  pointer-events: none;
+}
+.detail-photo img {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  mix-blend-mode: multiply !important;
+  filter: drop-shadow(0 22px 28px rgba(22,30,45,.22)) !important;
+  transform: scale(.94);
+}
+.camera-detail:hover .detail-photo img {
+  transform: translateY(-5px) scale(.98);
+}
+
+/* Hero camera collage: preserve the polaroid composition, remove the inner white image box. */
+.hero-camera {
+  background: rgba(255,255,255,.76) !important;
+}
+.hero-camera img {
+  background: transparent !important;
+  padding: 0 !important;
+  mix-blend-mode: multiply !important;
+  filter: drop-shadow(0 12px 15px rgba(36,48,68,.14)) !important;
+  transform: scale(.92) !important;
+}
+.hero-camera:hover img {
+  transform: scale(.97) !important;
+  filter: drop-shadow(0 17px 20px rgba(36,48,68,.18)) !important;
+}
+
+/* Booking builder thumbnails */
+.builder-top img,
+.camera-tabs img {
+  background: transparent !important;
+  mix-blend-mode: multiply !important;
+  filter: drop-shadow(0 8px 10px rgba(36,48,68,.12));
+}
+
+/* Keep the official product-detail guide untouched. */
+.official-guide-visual > img {
+  mix-blend-mode: normal !important;
+}
+
+@media(max-width:700px){
+  .camera-card > img{transform:scale(.94)}
+  .hero-camera img{transform:scale(.90)!important}
+  .detail-photo img{transform:scale(.92)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .camera-card > img,.detail-photo img,.hero-camera img{transition:none!important}
+}
