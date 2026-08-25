@@ -1,0 +1,197 @@
+/* KameraIn visual enhancements — additive only, no booking/data logic changes */
+
+:root{
+  --soft-coral:#ff7f8d;
+  --deep-coral:#e95e68;
+  --soft-shadow:0 18px 45px rgba(48,42,69,.10);
+}
+
+/* Stronger visual hierarchy */
+.section-head h2,.center h2,.booking-title h2,.area h2,.official-guide-heading h3{
+  position:relative;
+  display:inline-block;
+}
+.section-head h2::after,.center h2::after,.booking-title h2::after,.official-guide-heading h3::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:42%;
+  height:5px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--coral),var(--pink),transparent);
+  transform-origin:left;
+  animation:accentGrow .7s ease both;
+}
+.eyebrow{font-weight:900;letter-spacing:2px}
+.section-head>p,.booking-title>p,.official-guide p{line-height:1.75}
+
+/* Camera cards: clearer selection state */
+.camera-card{
+  isolation:isolate;
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+.camera-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 22px 50px rgba(54,45,70,.13);
+}
+.camera-card.active{
+  box-shadow:0 22px 55px rgba(241,102,104,.18);
+}
+.camera-card.active::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  border-radius:inherit;
+  background:linear-gradient(140deg,rgba(255,131,150,.10),transparent 45%);
+}
+.camera-card.active .choose{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--deep-coral);
+  font-weight:900;
+  background:#fff1f2;
+  border:1px solid rgba(241,102,104,.18);
+  border-radius:999px;
+  padding:8px 12px;
+  margin-top:10px;
+}
+.mini-prices b{font-weight:900;transition:transform .2s ease}
+.camera-card:hover .mini-prices b{transform:translateY(-1px) scale(1.03)}
+
+/* Booking builder micro-interactions */
+.builder{
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.builder:hover{
+  transform:translateY(-4px);
+  box-shadow:0 28px 65px rgba(66,53,98,.18);
+}
+.camera-tabs button,.segmented button,.package-list button{
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease;
+}
+.camera-tabs button:hover,.segmented button:hover,.package-list button:hover{transform:translateY(-2px)}
+.package-list button.selected{
+  box-shadow:0 10px 24px rgba(241,102,104,.10);
+}
+.total strong{
+  font-weight:900;
+  animation:pricePulse .45s ease both;
+}
+
+/* Premium CTA shine */
+.btn{
+  position:relative;
+  overflow:hidden;
+}
+.btn::after{
+  content:"";
+  position:absolute;
+  top:-80%;
+  left:-45%;
+  width:32%;
+  height:260%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:rotate(18deg) translateX(-220%);
+  transition:transform .65s ease;
+  pointer-events:none;
+}
+.btn:hover::after{transform:rotate(18deg) translateX(520%)}
+
+/* Official guide: more depth and interaction */
+.official-guide{
+  box-shadow:var(--soft-shadow);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.official-guide:hover{
+  transform:translateY(-3px);
+  box-shadow:0 28px 65px rgba(48,42,69,.14);
+}
+.official-spec-list>div,.official-link-grid a,.official-guide-notes article{
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+}
+.official-spec-list>div:hover,.official-link-grid a:hover,.official-guide-notes article:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 26px rgba(49,42,65,.08);
+}
+.official-link-grid a:hover{background:#fff5f2}
+.official-guide-visual img{transition:transform .45s ease,filter .45s ease}
+.official-guide:hover .official-guide-visual img{
+  transform:translateY(-5px) rotate(-1deg) scale(1.025);
+  filter:drop-shadow(0 14px 20px rgba(50,45,60,.12));
+}
+
+/* Three-step icons: make them unmistakably visible */
+.step-icon{position:relative;overflow:visible}
+.camera-icon::before{
+  content:"";
+  width:42px;height:29px;
+  border:4px solid var(--ink);
+  border-radius:6px;
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-45%);
+  box-sizing:border-box;
+}
+.camera-icon::after{
+  content:"";
+  width:15px;height:15px;
+  border:4px solid var(--ink);
+  border-radius:50%;
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-45%);
+  box-sizing:border-box;
+  box-shadow:-15px -14px 0 -6px var(--ink);
+}
+.chat-icon::before{
+  content:"";
+  width:43px;height:31px;
+  border:4px solid var(--ink);
+  border-radius:7px;
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);
+}
+.chat-icon::after{
+  content:"•••";
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-65%);
+  color:var(--ink);font-size:20px;font-weight:900;letter-spacing:2px;
+}
+.moment-icon::before{
+  content:"";
+  width:38px;height:38px;
+  border:4px solid var(--ink);
+  border-radius:50%;
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  box-shadow:-16px 9px 0 -7px #7658c9,16px -10px 0 -7px var(--coral);
+}
+.moment-icon::after{
+  content:"";
+  width:14px;height:14px;
+  border-radius:50%;
+  background:rgba(255,255,255,.85);
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+}
+.steps article:hover h3{color:var(--coral);transform:translateY(-2px)}
+.steps h3{transition:color .22s ease,transform .22s ease;font-weight:900}
+.steps p{max-width:330px;margin-inline:auto}
+
+/* Gallery + FAQ micro interaction */
+.media-slider{transition:transform .25s ease}
+.media-slider:hover{transform:translateY(-3px)}
+.faq-list details{transition:transform .2s ease,box-shadow .2s ease}
+.faq-list details:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(42,38,58,.07)}
+.faq-list summary{font-weight:900}
+
+/* Text selection feels branded */
+::selection{background:rgba(255,131,150,.35);color:var(--ink)}
+
+@keyframes accentGrow{from{transform:scaleX(.15);opacity:.3}to{transform:scaleX(1);opacity:1}}
+@keyframes pricePulse{0%{transform:scale(.94);opacity:.5}70%{transform:scale(1.04)}100%{transform:scale(1);opacity:1}}
+
+@media(max-width:700px){
+  .section-head h2::after,.center h2::after,.booking-title h2::after,.official-guide-heading h3::after{height:4px;bottom:-6px}
+  .camera-card:hover,.builder:hover,.official-guide:hover,.media-slider:hover{transform:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .section-head h2::after,.center h2::after,.booking-title h2::after,.official-guide-heading h3::after,.total strong{animation:none!important}
+  .btn::after{display:none}
+}
