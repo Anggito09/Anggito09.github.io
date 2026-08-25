@@ -6,7 +6,9 @@ import "./stepsFix.css";
 import "./enhancements.css";
 import "./occasionEnhancements.css";
 import "./guideEnhancements.css";
+import "./mobileNav.css";
 import { installUiFixes } from "./uiFixes";
+import { installMobileNav } from "./mobileNav";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -16,3 +18,4 @@ createRoot(document.getElementById("root")!).render(
 
 // Apply only presentation/text corrections after React has rendered.
 installUiFixes();
+window.requestAnimationFrame(() => installMobileNav());
