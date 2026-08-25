@@ -1,21 +1,8 @@
 export function installUiFixes() {
-  const root = document.getElementById("root");
-  if (!root) return () => {};
+  let timer: number | undefined;
 
   const applyFixes = () => {
-    document.querySelectorAll<HTMLElement>(".trust span").forEach((item) => {
-      if (item.textContent?.startsWith("OK ")) {
-        item.textContent = item.textContent.replace(/^OK\s+/, "✓ ");
-      }
-    });
-
-    document.querySelectorAll<HTMLElement>(".choose").forEach((item) => {
-      if (item.textContent?.startsWith("OK ")) {
-        item.textContent = item.textContent.replace(/^OK\s+/, "✓ ");
-      }
-    });
-
-    document.querySelectorAll<HTMLElement>(".spec-grid span").forEach((item) => {
+    document.querySelectorAll<HTMLElement>(".trust span, .choose, .spec-grid span").forEach((item) => {
       if (item.textContent?.startsWith("OK ")) {
         item.textContent = item.textContent.replace(/^OK\s+/, "✓ ");
       }
@@ -42,10 +29,17 @@ export function installUiFixes() {
     }
   };
 
-  applyFixes();
+  const scheduleFixes = () => {
+    if (timer) window.clearTimeout(timer);
+    timer = window.setTimeout(applyFixes, 80);
+  };
 
-  const observer = new MutationObserver(applyFixes);
-  observer.observe(root, { childList: true, subtree: true, characterData: true });
+  // Jalankan setelah React selesai merender, bukan saat root masih kosong.
+  window.requestAnimationFrame(() => window.requestAnimationFrame(applyFixes));
+  document.addEventListener("click", scheduleFixes, { passive: true });
 
-  return () => observer.disconnect();
+  return () => {
+    if (timer) window.clearTimeout(timer);
+    document.removeEventListener("click", scheduleFixes);
+  };
 }
