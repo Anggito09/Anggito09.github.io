@@ -1,0 +1,24 @@
+/* Mobile navigation for KameraIn */
+.mobile-nav-toggle{display:none}
+@media(max-width:850px){
+  .nav-shell{position:sticky;top:0;z-index:100;background:rgba(255,250,241,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(36,48,68,.06)}
+  .nav{position:relative;gap:12px}
+  .mobile-nav-toggle{display:inline-flex;width:46px;height:46px;border:0;border-radius:50%;background:#fff;color:var(--ink);align-items:center;justify-content:center;flex-direction:column;gap:5px;box-shadow:0 8px 22px rgba(43,38,61,.10);cursor:pointer;padding:0;order:2}
+  .mobile-nav-toggle span{display:block;width:20px;height:2px;border-radius:999px;background:currentColor;transition:transform .25s ease,opacity .25s ease}
+  .mobile-menu-open .mobile-nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mobile-menu-open .mobile-nav-toggle span:nth-child(2){opacity:0}
+  .mobile-menu-open .mobile-nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav .logo-link{order:1}
+  .nav .btn.small{order:3;margin-left:auto}
+  .navlinks{display:flex!important;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:120;flex-direction:column;gap:4px;padding:12px;background:rgba(255,255,255,.97);border:1px solid rgba(36,48,68,.08);border-radius:22px;box-shadow:0 22px 50px rgba(43,38,61,.16);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px) scale(.98);transition:opacity .22s ease,transform .22s ease,visibility .22s ease}
+  .mobile-menu-open .navlinks{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+  .navlinks a{display:flex;align-items:center;min-height:46px;padding:0 14px;border-radius:14px;font-size:14px;background:transparent}
+  .navlinks a:hover,.navlinks a.active{background:#fff2ef;color:var(--coral)}
+}
+@media(max-width:540px){
+  .nav{height:76px}
+  .logo-link{width:58px!important;height:58px!important}
+  .mobile-nav-toggle{width:44px;height:44px}
+  .nav .btn.small{font-size:12px!important;padding:12px 16px!important;min-width:auto}
+  .nav .btn.small::after{content:none!important}
+}
