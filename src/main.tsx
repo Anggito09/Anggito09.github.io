@@ -5,6 +5,7 @@ import "./styles.css";
 import "./stepsFix.css";
 import "./enhancements.css";
 import "./occasionEnhancements.css";
+import "./guideEnhancements.css";
 import { installUiFixes } from "./uiFixes";
 
 createRoot(document.getElementById("root")!).render(
