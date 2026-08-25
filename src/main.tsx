@@ -6,6 +6,7 @@ import "./stepsFix.css";
 import "./enhancements.css";
 import "./occasionEnhancements.css";
 import "./guideEnhancements.css";
+import "./cameraImageEnhancements.css";
 import "./mobileNav.css";
 import { installUiFixes } from "./uiFixes";
 import { installMobileNav } from "./mobileNav";
