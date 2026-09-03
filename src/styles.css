@@ -166,3 +166,85 @@
 .slider-arrow{font-family:Arial,sans-serif;font-size:38px;line-height:1}
 @media(max-width:1050px){.official-guide-visual{min-height:460px}.official-guide-visual img{height:250px}}
 @media(max-width:650px){.official-guide-visual{min-height:410px}.official-guide-visual img{height:220px}.official-link-grid{grid-template-columns:1fr}.official-link-grid a:first-child{grid-column:auto}.official-guide-notes article{padding:15px}.official-guide-notes p{font-size:11px}.comparison-table{table-layout:auto}}
+
+
+/* Standalone photo printing service */
+.print-service-section {
+  padding: 72px 0;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(241, 102, 104, 0.12), transparent 32%),
+    linear-gradient(135deg, #fff8f5 0%, #ffffff 56%, #f4fbf8 100%);
+}
+.print-service {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 42px;
+  align-items: center;
+}
+.print-service-copy h2 {
+  margin: 10px 0 14px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+}
+.print-service-copy > p {
+  max-width: 680px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.print-service-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+.print-service-points span {
+  padding: 10px 14px;
+  border: 1px solid rgba(36, 48, 68, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(36, 48, 68, 0.06);
+}
+.print-service-card {
+  padding: 30px;
+  border: 1px solid rgba(241, 102, 104, 0.2);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 22px 55px rgba(36, 48, 68, 0.13);
+  text-align: center;
+}
+.print-service-card > small {
+  display: block;
+  color: #f16668;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+.print-service-card > strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1;
+}
+.print-service-card > span {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.print-service-card > p {
+  margin: 18px 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+@media (max-width: 760px) {
+  .print-service-section { padding: 52px 0; }
+  .print-service { grid-template-columns: 1fr; gap: 24px; }
+  .print-service-copy h2 { font-size: 2.15rem; }
+  .print-service-points { display: grid; }
+  .print-service-card { padding: 24px 20px; border-radius: 23px; }
+}
